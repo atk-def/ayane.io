@@ -1,0 +1,54 @@
+@keyframes fantasy {
+  0% {
+    background-position: 83% 0%;
+  }
+
+  50% {
+    background-position: 18% 100%;
+  }
+
+  100% {
+    background-position: 83% 0%;
+  }
+}
+
+.root {
+  @apply w-screen h-screen;
+  @apply fixed top-0 left-0;
+
+  background: linear-gradient(
+    277deg,
+    #fffde5,
+    #e9ffda,
+    #dffbff,
+    #ecefff,
+    #f6e1ff,
+    #ffe5f0
+  );
+  background-size: 1200% 1200%;
+  animation: fantasy 5s ease infinite;
+
+  & h1 {
+    @apply text-white text-center align-middle;
+    @apply fixed top-0 left-0 right-0 bottom-0;
+    @apply m-auto select-none;
+
+    width: max-content;
+    height: max-content;
+    font-family: "GothamPro-Black";
+    font-size: 72px;
+    font-weight: bold;
+    text-shadow: 2px 6px 0px rgba(0, 0, 0, 30%);
+    mix-blend-mode: soft-light;
+
+    &::before {
+      @apply absolute w-full h-full;
+      @apply left-0 top-0 z-10 text-blue-50;
+
+      content: "Ayane";
+      font-family: "GothamPro-Black";
+      font-size: 72px;
+      font-weight: bold;
+    }
+  }
+}
