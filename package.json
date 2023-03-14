@@ -16,6 +16,7 @@
     "clsx": "^1.1.1",
     "framer-motion": "^5.5.5",
     "jotai": "^1.4.8",
+    "lucide-react": "^0.125.0",
     "postcss-nesting": "^10.0.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
