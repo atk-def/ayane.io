@@ -14,7 +14,7 @@
     "@react-three/fiber": "^8.0.23",
     "@types/three": "^0.141.0",
     "clsx": "^1.1.1",
-    "framer-motion": "^5.5.5",
+    "framer-motion": "^10.3.2",
     "jotai": "^1.4.8",
     "lucide-react": "^0.125.0",
     "postcss-nesting": "^10.0.3",
