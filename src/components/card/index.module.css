@@ -1,0 +1,14 @@
+.card {
+  @apply relative w-full h-auto rounded-2xl;
+  @apply bg-white text-black border-4 border-black;
+
+  box-shadow: 0 4px 0;
+
+  &-badge {
+    @apply absolute -bottom-6 right-4;
+  }
+
+  &:active {
+    @apply shadow-none top-2;
+  }
+}
