@@ -1,30 +1,30 @@
-import { Feather, Github, Mail, Send } from "lucide-react";
+import { Feather, Github, Mail, Send } from 'lucide-react'
 import {
   MY_BLOG_URL,
   MY_EMAIL,
   MY_GITHUB_HOMEPAGE_URL,
   MY_TELEGRAM_INVITE_URL,
-} from "./external-link";
+} from './external-link'
 
 export const snsList = [
   {
-    name: "BLOG",
+    name: 'BLOG',
     icon: Feather,
     link: MY_BLOG_URL,
   },
   {
-    name: "GITHUB",
+    name: 'GITHUB',
     icon: Github,
     link: MY_GITHUB_HOMEPAGE_URL,
   },
   {
-    name: "TELEGRAM",
+    name: 'TELEGRAM',
     icon: Send,
     link: MY_TELEGRAM_INVITE_URL,
   },
   {
-    name: "EMAIL",
+    name: 'EMAIL',
     icon: Mail,
     link: `mailto:${MY_EMAIL}`,
   },
-];
+]
