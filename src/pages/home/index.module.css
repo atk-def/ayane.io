@@ -4,7 +4,7 @@
 }
 
 .volume-control-btn {
-  @apply fixed top-12 sm:left-12 left-4;
+  @apply fixed sm:top-12 top-8 sm:left-12 left-4;
   @apply w-16 h-16;
 }
 
@@ -16,7 +16,7 @@
   }
 
   &-toggle-btn {
-    @apply fixed top-12 sm:right-12 right-4;
+    @apply fixed sm:top-12 top-8 sm:right-12 right-4;
     @apply w-16 h-16 z-30;
 
     &-opened {
@@ -52,7 +52,7 @@
 
 .projects {
   @apply w-auto h-screen overflow-y-auto;
-  @apply flex flex-col gap-10 py-[3.75rem] pr-4 z-20;
+  @apply flex flex-col gap-10 sm:py-[3.75rem] py-12 pr-4 z-20;
 
   &-title {
     @apply w-11/12 sm:w-[24rem] text-5xl text-purple-400;
@@ -82,6 +82,7 @@
   /* Magic scrollbar vertical padding */
   &::-webkit-scrollbar-thumb {
     @apply bg-purple-700 bg-clip-padding;
+    @apply hidden sm:block;
 
     border-top: 3.25rem solid rgba(0, 0, 0, 0);
     border-bottom: 1rem solid rgba(0, 0, 0, 0);
