@@ -8,15 +8,11 @@
     "format": "npx prettier --write ."
   },
   "dependencies": {
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.2.4",
     "@react-three/drei": "^9.34.3",
     "@react-three/fiber": "^8.0.23",
     "@types/three": "^0.141.0",
     "clsx": "^1.1.1",
     "framer-motion": "^10.3.2",
-    "jotai": "^1.4.8",
     "lucide-react": "^0.125.0",
     "postcss-nesting": "^10.0.3",
     "react": "^18.1.0",
@@ -24,16 +20,13 @@
     "react-router": "^6.1.1",
     "react-router-dom": "^6.1.1",
     "three": "^0.141.0",
-    "ua-parser-js": "^1.0.2",
     "use-sound": "^4.0.1",
     "vite-tsconfig-paths": "^3.3.17"
   },
   "devDependencies": {
     "@honkhonk/vite-plugin-svgr": "^1.1.0",
-    "@iconify/react": "^3.1.0",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
-    "@types/ua-parser-js": "^0.7.36",
     "@vitejs/plugin-react": "^1.0.7",
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",
