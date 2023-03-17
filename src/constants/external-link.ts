@@ -1,4 +1,4 @@
-export const MY_BLOG_URL = 'https://miyakoochi.rocks'
+export const MY_BLOG_URL = 'https://blog.ayane.io'
 export const MY_GITHUB_HOMEPAGE_URL = 'https://github.com/miyakoochi'
 export const MY_TELEGRAM_INVITE_URL = 'https://t.me/miyakoochi'
 export const MY_EMAIL = 'me@ayane.io'
