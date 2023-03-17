@@ -10,3 +10,11 @@
     url("assets/fonts/GothamPro-Black.ttf") format("truetype"),
     url("assets/fonts/GothamPro-Black.svg#GothamPro-Black") format("svg");
 }
+
+body {
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "GothamPro-Black";
+}
