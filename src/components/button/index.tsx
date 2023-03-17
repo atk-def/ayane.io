@@ -1,15 +1,15 @@
-import clsx from "clsx";
-import { HTMLMotionProps, motion } from "framer-motion";
-import { forwardRef, ReactNode } from "react";
-import styles from "./index.module.css";
+import clsx from 'clsx'
+import { HTMLMotionProps, motion } from 'framer-motion'
+import { forwardRef, ReactNode } from 'react'
+import styles from './index.module.css'
 
 export type ButtonProps = {
-  children?: ReactNode;
-} & HTMLMotionProps<"button">;
+  children?: ReactNode
+} & HTMLMotionProps<'button'>
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
-    const { className, children, disabled, ...rest } = props;
+    const { className, children, disabled, ...rest } = props
     return (
       <motion.button
         ref={ref}
@@ -20,6 +20,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       >
         {children}
       </motion.button>
-    );
-  }
-);
+    )
+  },
+)

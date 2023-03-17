@@ -1,3 +1,3 @@
-import { Ghost } from "./ghost";
+import { Ghost } from './ghost'
 
-export { Ghost };
+export { Ghost }
