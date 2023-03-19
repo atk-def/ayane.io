@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { Button } from 'components/button'
 import { Card } from 'components/card'
 import { Hourglass, Menu, Volume2, VolumeX, X } from 'lucide-react'
-import { Ghost } from 'models'
+import { Ghost } from 'models/ghost'
 import { FC, Suspense, useRef, useState } from 'react'
 import { openLinkInNewTab } from 'utils'
 import {
