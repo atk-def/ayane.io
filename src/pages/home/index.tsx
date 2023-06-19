@@ -18,7 +18,7 @@ import { projectList } from 'constants/project-list'
 import { snsList } from 'constants/sns-list'
 import BackgroundMusic from 'assets/sounds/superstar-loop.wav?url'
 import useSound from 'use-sound'
-import { toggleAnimationVariants } from 'utils/anim'
+import { menuAnimationVariants, toggleAnimationVariants } from 'utils/anim'
 
 const VolumeControlBtn = () => {
   const [isMuted, setIsMuted] = useState(true)
@@ -40,46 +40,6 @@ const VolumeControlBtn = () => {
   )
 }
 
-const circleToFullScreenVariants = {
-  open: {
-    width: '100%',
-    height: '100%',
-    top: 0,
-    left: 0,
-    opacity: 1,
-    borderRadius: 0,
-    transition: {
-      type: 'spring',
-      restDelta: 2,
-      duration: 0.5,
-    },
-  },
-  closed: ({
-    width,
-    height,
-    top,
-    left,
-  }: {
-    width: number
-    height: number
-    top: number
-    left: number
-  }) => ({
-    width,
-    height,
-    top,
-    left,
-    opacity: 0,
-    borderRadius: 100,
-    transition: {
-      type: 'spring',
-      stiffness: 400,
-      damping: 40,
-      delay: 0.5,
-    },
-  }),
-}
-
 const ModalForMobile = () => {
   const [modalOpened, toggleModalOpened] = useCycle(false, true)
   const toggleBtnRef = useRef<HTMLButtonElement>(null)
@@ -99,7 +59,7 @@ const ModalForMobile = () => {
           top: toggleBtnCurrent?.offsetTop,
           left: toggleBtnCurrent?.offsetLeft,
         }}
-        variants={circleToFullScreenVariants}
+        variants={menuAnimationVariants}
       />
       <AnimatePresence>
         {modalOpened && <ProjectList variant="for-modal" />}
