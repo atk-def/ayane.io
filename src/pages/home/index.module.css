@@ -28,7 +28,7 @@
 .contact {
   @apply fixed left-0 bottom-0;
   @apply pb-12 sm:px-12 px-4;
-  @apply grid gap-2;
+  @apply grid gap-2 select-none;
   @apply text-white;
 
   text-shadow: 3px 3px 0 theme(colors.purple.400);
@@ -56,6 +56,7 @@
 
   &-title {
     @apply w-11/12 sm:w-[24rem] text-5xl text-purple-400;
+    @apply select-none;
 
     /* Emulate `text-stroke` for compatibility */
     text-shadow: -1.5px -1.5px 0 theme(colors.purple.700),
