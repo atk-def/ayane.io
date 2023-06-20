@@ -19,6 +19,7 @@ import { snsList } from 'constants/sns-list'
 import BackgroundMusic from 'assets/sounds/superstar-loop.wav?url'
 import useSound from 'use-sound'
 import { toggleAnimationVariants } from 'utils/anim'
+import { Picture } from 'components/picture'
 
 const Audio = () => {
   const [play, { stop }] = useSound(BackgroundMusic, {
@@ -123,11 +124,13 @@ const ProjectList: FC<ProjectListProps> = (props) => {
             badge={wip && wipBadge}
             onClick={() => openLinkInNewTab(link)}
           >
-            <img
-              className={styles['projects-card-image']}
-              draggable={false}
-              src={bannerUrl}
-              alt={name}
+            <Picture
+              webpSrc={bannerUrl.webp}
+              pngSrc={bannerUrl.png}
+              imgAttrs={{
+                className: styles['projects-card-image'],
+                draggable: false,
+              }}
             />
           </Card>
         )
