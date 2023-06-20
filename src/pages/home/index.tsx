@@ -21,16 +21,28 @@ import BackgroundMusic from 'assets/sounds/superstar-loop.wav?url'
 import useSound from 'use-sound'
 import { toggleAnimationVariants } from 'utils/anim'
 import { Picture } from 'components/picture'
+import { Spinner } from 'components/spinner'
 
 const Audio = () => {
+  const [isPending, setIsPending] = useState(true)
   const [play, { stop }] = useSound(BackgroundMusic, {
     loop: true,
+    interrupt: false,
+    onload: () => setIsPending(false),
   })
 
   useEffect(() => {
     play()
     return () => stop()
-  })
+  }, [play])
+
+  if (isPending) {
+    return (
+      <div className={styles['audio-indicator']}>
+        <Spinner />
+      </div>
+    )
+  }
 
   return null
 }
@@ -164,7 +176,13 @@ export const Home = () => {
 
   return (
     <div className={styles.root}>
-      <Suspense fallback={null}>
+      <Suspense
+        fallback={
+          <div className={styles['root-indicator']}>
+            <Spinner />
+          </div>
+        }
+      >
         <Canvas>
           <Ghost scale={6} />
           <ContactShadows
@@ -181,7 +199,6 @@ export const Home = () => {
             enablePan={false}
           />
         </Canvas>
-        <AudioControlBtn />
       </Suspense>
       {contact}
       {isLargeScreen ? (
@@ -189,6 +206,7 @@ export const Home = () => {
       ) : (
         <ProjectListModalForMobile />
       )}
+      <AudioControlBtn />
       <div ref={largeScreenDividerRef} className="fixed left-[1280px]" />
     </div>
   )

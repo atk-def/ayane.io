@@ -3,6 +3,17 @@
   @apply fixed top-0 left-0;
 }
 
+.root-indicator {
+  @apply fixed top-0 left-0 flex justify-center items-center;
+  @apply w-full h-full text-white pointer-events-none;
+}
+
+.audio-indicator {
+  @apply text-black bg-white rounded-full;
+  @apply absolute top-0 left-0 w-full h-full;
+  @apply flex justify-center items-center;
+}
+
 .audio-control-btn {
   @apply fixed sm:top-12 top-8 sm:left-12 left-4;
   @apply w-16 h-16;
