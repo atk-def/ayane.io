@@ -1,6 +1,6 @@
 import type { FC, HTMLAttributes } from 'react'
 
-interface PictureProps extends HTMLAttributes<HTMLPictureElement> {
+export interface PictureProps extends HTMLAttributes<HTMLPictureElement> {
   jpgSrc?: string
   pngSrc?: string
   webpSrc?: string

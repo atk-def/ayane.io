@@ -11,6 +11,7 @@ import {
   HTMLMotionProps,
   useCycle,
   AnimatePresence,
+  useInView,
 } from 'framer-motion'
 import styles from './index.module.css'
 import clsx from 'clsx'
@@ -43,12 +44,12 @@ const AudioControlBtn = () => {
       onClick={() => setIsPlaying((prev) => !prev)}
     >
       {!isPlaying ? <VolumeX /> : <Volume2 />}
-      <Suspense>{isPlaying && <Audio />}</Suspense>
+      {isPlaying && <Audio />}
     </Button>
   )
 }
 
-const ModalForMobile = () => {
+const ProjectListModalForMobile = () => {
   const [modalOpen, toggleModalOpen] = useCycle(false, true)
   const toggleBtnRef = useRef<HTMLButtonElement>(null)
   const toggleBtnCurrent = toggleBtnRef.current
@@ -158,6 +159,9 @@ const contact = (
 )
 
 export const Home = () => {
+  const largeScreenDividerRef = useRef<HTMLDivElement>(null)
+  const isLargeScreen = useInView(largeScreenDividerRef)
+
   return (
     <div className={styles.root}>
       <Suspense fallback={null}>
@@ -179,9 +183,13 @@ export const Home = () => {
         </Canvas>
         <AudioControlBtn />
       </Suspense>
-      <ModalForMobile />
       {contact}
-      <ProjectList variant="for-desktop" />
+      {isLargeScreen ? (
+        <ProjectList variant="for-desktop" />
+      ) : (
+        <ProjectListModalForMobile />
+      )}
+      <div ref={largeScreenDividerRef} className="fixed left-[1280px]" />
     </div>
   )
 }

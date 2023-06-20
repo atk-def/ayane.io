@@ -9,7 +9,7 @@
 }
 
 .modal {
-  @apply relative z-10 xl:hidden;
+  @apply relative z-10;
 
   &-background {
     @apply fixed w-16 h-16 bg-white;
@@ -91,7 +91,6 @@
 
   &.for-desktop {
     @apply fixed top-0 right-0 pr-20;
-    @apply hidden xl:flex;
   }
 
   &.for-modal {
