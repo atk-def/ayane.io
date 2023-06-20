@@ -18,7 +18,7 @@ import { projectList } from 'constants/project-list'
 import { snsList } from 'constants/sns-list'
 import BackgroundMusic from 'assets/sounds/superstar-loop.wav?url'
 import useSound from 'use-sound'
-import { menuAnimationVariants, toggleAnimationVariants } from 'utils/anim'
+import { toggleAnimationVariants } from 'utils/anim'
 
 const Audio = () => {
   const [play, { stop }] = useSound(BackgroundMusic, {
@@ -66,7 +66,7 @@ const ModalForMobile = () => {
           top: toggleBtnCurrent?.offsetTop,
           left: toggleBtnCurrent?.offsetLeft,
         }}
-        variants={menuAnimationVariants}
+        variants={toggleAnimationVariants.fullScreen}
       />
       <AnimatePresence>
         {modalOpen && <ProjectList variant="for-modal" />}
@@ -101,7 +101,7 @@ const ProjectList: FC<ProjectListProps> = (props) => {
   return (
     <motion.div
       className={clsx(styles.projects, variant && styles[variant], className)}
-      initial={variant === 'for-desktop' ? 'oepn' : 'closed'}
+      initial={variant === 'for-desktop' ? 'open' : 'closed'}
       exit={'closed'}
       variants={toggleAnimationVariants.stagger}
       key="projects"
