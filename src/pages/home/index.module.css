@@ -3,7 +3,7 @@
   @apply fixed top-0 left-0;
 }
 
-.volume-control-btn {
+.audio-control-btn {
   @apply fixed sm:top-12 top-8 sm:left-12 left-4;
   @apply w-16 h-16;
 }

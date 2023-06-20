@@ -4,7 +4,7 @@ import { Button } from 'components/button'
 import { Card } from 'components/card'
 import { Hourglass, Menu, Volume2, VolumeX, X } from 'lucide-react'
 import { Ghost } from 'models/ghost'
-import { FC, Suspense, useRef, useState } from 'react'
+import { FC, Suspense, useEffect, useRef, useState } from 'react'
 import { openLinkInNewTab } from 'utils'
 import {
   motion,
@@ -20,35 +20,42 @@ import BackgroundMusic from 'assets/sounds/superstar-loop.wav?url'
 import useSound from 'use-sound'
 import { menuAnimationVariants, toggleAnimationVariants } from 'utils/anim'
 
-const VolumeControlBtn = () => {
-  const [isMuted, setIsMuted] = useState(true)
-  const [play, { pause }] = useSound(BackgroundMusic, {
+const Audio = () => {
+  const [play, { stop }] = useSound(BackgroundMusic, {
     loop: true,
-    onplay: () => setIsMuted(false),
-    onpause: () => setIsMuted(true),
   })
+
+  useEffect(() => {
+    play()
+    return () => stop()
+  })
+
+  return null
+}
+
+const AudioControlBtn = () => {
+  const [isPlaying, setIsPlaying] = useState(false)
 
   return (
     <Button
-      className={styles['volume-control-btn']}
-      onClick={() => {
-        isMuted ? play() : pause()
-      }}
+      className={styles['audio-control-btn']}
+      onClick={() => setIsPlaying((prev) => !prev)}
     >
-      {isMuted ? <VolumeX /> : <Volume2 />}
+      {!isPlaying ? <VolumeX /> : <Volume2 />}
+      <Suspense>{isPlaying && <Audio />}</Suspense>
     </Button>
   )
 }
 
 const ModalForMobile = () => {
-  const [modalOpened, toggleModalOpened] = useCycle(false, true)
+  const [modalOpen, toggleModalOpen] = useCycle(false, true)
   const toggleBtnRef = useRef<HTMLButtonElement>(null)
   const toggleBtnCurrent = toggleBtnRef.current
 
   return (
     <motion.nav
       initial={false}
-      animate={modalOpened ? 'open' : 'closed'}
+      animate={modalOpen ? 'open' : 'closed'}
       className={styles['modal']}
     >
       <motion.div
@@ -62,17 +69,17 @@ const ModalForMobile = () => {
         variants={menuAnimationVariants}
       />
       <AnimatePresence>
-        {modalOpened && <ProjectList variant="for-modal" />}
+        {modalOpen && <ProjectList variant="for-modal" />}
       </AnimatePresence>
       <Button
         ref={toggleBtnRef}
         className={clsx(
           styles['modal-toggle-btn'],
-          modalOpened && styles['modal-toggle-btn-opened'],
+          modalOpen && styles['modal-toggle-btn-opened'],
         )}
-        onClick={() => toggleModalOpened()}
+        onClick={() => toggleModalOpen()}
       >
-        {modalOpened ? <X /> : <Menu />}
+        {modalOpen ? <X /> : <Menu />}
       </Button>
     </motion.nav>
   )
@@ -167,8 +174,8 @@ export const Home = () => {
             enablePan={false}
           />
         </Canvas>
+        <AudioControlBtn />
       </Suspense>
-      <VolumeControlBtn />
       <ModalForMobile />
       {contact}
       <ProjectList variant="for-desktop" />
