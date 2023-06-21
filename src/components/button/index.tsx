@@ -16,6 +16,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={clsx(styles.button, disabled && styles.disabled, className)}
         whileTap={{ scale: 0.99 }}
         transition={{ duration: 0.05 }}
+        disabled={disabled}
         {...rest}
       >
         {children}

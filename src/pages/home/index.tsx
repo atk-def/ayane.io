@@ -23,7 +23,10 @@ import { toggleAnimationVariants } from 'utils/anim'
 import { Picture } from 'components/picture'
 import { Spinner } from 'components/spinner'
 
-const Audio = () => {
+const Audio: FC<{ onPending?: () => void; onFinish?: () => void }> = ({
+  onPending,
+  onFinish,
+}) => {
   const [isPending, setIsPending] = useState(true)
   const [play, { stop }] = useSound(BackgroundMusic, {
     loop: true,
@@ -36,6 +39,10 @@ const Audio = () => {
     return () => stop()
   }, [play])
 
+  useEffect(() => {
+    isPending ? onPending?.() : onFinish?.()
+  }, [isPending])
+
   if (isPending) {
     return (
       <div className={styles['audio-indicator']}>
@@ -47,21 +54,28 @@ const Audio = () => {
   return null
 }
 
-const AudioControlBtn = () => {
+const AudioControlBtn: FC = () => {
   const [isPlaying, setIsPlaying] = useState(false)
+  const [disabled, setDisabled] = useState(false)
 
   return (
     <Button
       className={styles['audio-control-btn']}
       onClick={() => setIsPlaying((prev) => !prev)}
+      disabled={disabled}
     >
       {!isPlaying ? <VolumeX /> : <Volume2 />}
-      {isPlaying && <Audio />}
+      {isPlaying && (
+        <Audio
+          onPending={() => setDisabled(true)}
+          onFinish={() => setDisabled(false)}
+        />
+      )}
     </Button>
   )
 }
 
-const ProjectListModalForMobile = () => {
+const ProjectListModalForMobile: FC = () => {
   const [modalOpen, toggleModalOpen] = useCycle(false, true)
   const toggleBtnRef = useRef<HTMLButtonElement>(null)
   const toggleBtnCurrent = toggleBtnRef.current
