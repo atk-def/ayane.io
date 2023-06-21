@@ -89,15 +89,6 @@
       1.5px 1.5px 0 theme(colors.purple.700);
   }
 
-  &-card {
-    @apply hover:brightness-90 active:brightness-75;
-    @apply w-11/12 sm:w-[24rem] cursor-pointer select-none;
-
-    &-image {
-      @apply rounded-xl;
-    }
-  }
-
   &::-webkit-scrollbar {
     @apply w-2 h-1;
 
@@ -120,6 +111,15 @@
   &.for-modal {
     @apply fixed top-0 left-0 bottom-0 right-0 mx-auto;
     @apply items-center;
+  }
+}
+
+.project-card {
+  @apply hover:brightness-90 active:brightness-75;
+  @apply w-11/12 sm:w-[24rem] cursor-pointer select-none;
+
+  &-image {
+    @apply rounded-xl;
   }
 }
 
