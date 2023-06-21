@@ -17,6 +17,19 @@
 .audio-control-btn {
   @apply fixed sm:top-12 top-8 sm:left-12 left-4;
   @apply w-16 h-16;
+
+  &::before {
+    @apply absolute top-0 left-0 w-full h-full;
+    @apply bg-white/20 rounded-full -z-10;
+
+    content: '';
+  }
+
+  &.ping-anim::before {
+    @apply animate-ping;
+
+    animation-duration: 4s;
+  }
 }
 
 .modal {
