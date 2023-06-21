@@ -60,7 +60,10 @@ const AudioControlBtn: FC = () => {
 
   return (
     <Button
-      className={styles['audio-control-btn']}
+      className={clsx(
+        styles['audio-control-btn'],
+        isPlaying && !disabled && styles['ping-anim'],
+      )}
       onClick={() => setIsPlaying((prev) => !prev)}
       disabled={disabled}
     >
