@@ -22,6 +22,7 @@ import useSound from 'use-sound'
 import { toggleAnimationVariants } from 'utils/anim'
 import { Picture } from 'components/picture'
 import { Spinner } from 'components/spinner'
+import { useTitleSetter } from 'hooks/use-title-setter'
 
 const Audio: FC<{ onPending?: () => void; onFinish?: () => void }> = ({
   onPending,
@@ -146,19 +147,19 @@ const ProjectList: FC<ProjectListProps> = (props) => {
         PROJECTS
       </motion.h2>
       {projectList.map((project) => {
-        const { name, bannerUrl, wip, link } = project
+        const { name, banner, wip, link } = project
         return (
           <Card
             key={name}
-            className={clsx(styles['projects-card'], styles[name])}
+            className={clsx(styles['project-card'], styles[name])}
             badge={wip && wipBadge}
             onClick={() => openLinkInNewTab(link)}
           >
             <Picture
-              webpSrc={bannerUrl.webp}
-              pngSrc={bannerUrl.png}
+              webpSrc={banner.webp}
+              pngSrc={banner.png}
               imgAttrs={{
-                className: styles['projects-card-image'],
+                className: styles['project-card-image'],
                 draggable: false,
               }}
             />
@@ -190,6 +191,8 @@ const contact = (
 export const Home = () => {
   const largeScreenDividerRef = useRef<HTMLDivElement>(null)
   const isLargeScreen = useInView(largeScreenDividerRef)
+
+  useTitleSetter('Links | Ayane')
 
   return (
     <div className={styles.root}>

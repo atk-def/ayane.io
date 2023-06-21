@@ -10,22 +10,41 @@ import {
   RIFF_PROJECT_URL,
 } from './external-link'
 
-export const projectList = [
+export interface Project {
+  name: string
+  banner: {
+    png: string
+    webp: string
+  }
+  wip: boolean
+  link: string
+}
+
+export const projectList: Project[] = [
   {
     name: 'riff',
-    bannerUrl: { png: riffBannerPngUrl, webp: riffBannerWebpUrl },
+    banner: {
+      png: riffBannerPngUrl,
+      webp: riffBannerWebpUrl,
+    },
     wip: true,
     link: RIFF_PROJECT_URL,
   },
   {
     name: 'pikuseru',
-    bannerUrl: { png: pikuseruBannerPngUrl, webp: pikuseruBannerWebpUrl },
+    banner: {
+      png: pikuseruBannerPngUrl,
+      webp: pikuseruBannerWebpUrl,
+    },
     wip: true,
     link: PIKUSERU_PROJECT_URL,
   },
   {
     name: 'pikushi',
-    bannerUrl: { png: pikushiBannerPngUrl, webp: pikushiBannerWebpUrl },
+    banner: {
+      png: pikushiBannerPngUrl,
+      webp: pikushiBannerWebpUrl,
+    },
     wip: false,
     link: PIKUSHI_PROJECT_URL,
   },
