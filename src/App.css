@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'GothamPro-Black';
-  src: url('assets/fonts/GothamPro-Black.eot?') format('eot'),
-    url('assets/fonts/GothamPro-Black.otf') format('opentype'),
-    url('assets/fonts/GothamPro-Black.woff') format('woff'),
-    url('assets/fonts/GothamPro-Black.ttf') format('truetype'),
-    url('assets/fonts/GothamPro-Black.svg#GothamPro-Black') format('svg');
+  font-family: 'gotham-pro';
+  src: url('assets/fonts/gotham-pro.eot?') format('eot'),
+    url('assets/fonts/gotham-pro.otf') format('opentype'),
+    url('assets/fonts/gotham-pro.woff') format('woff'),
+    url('assets/fonts/gotham-pro.ttf') format('truetype'),
+    url('assets/fonts/gotham-pro.svg#gotham-pro') format('svg');
 }
 
 body {
@@ -16,5 +16,5 @@ body {
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'GothamPro-Black';
+  font-family: 'gotham-pro';
 }
