@@ -8,8 +8,8 @@
     "format": "npx prettier --write ."
   },
   "dependencies": {
-    "@react-three/drei": "^9.34.3",
-    "@react-three/fiber": "^8.0.23",
+    "@react-three/drei": "^9.78.2",
+    "@react-three/fiber": "^8.13.5",
     "clsx": "^1.1.1",
     "framer-motion": "^10.3.2",
     "lucide-react": "^0.125.0",
